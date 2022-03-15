@@ -15,6 +15,7 @@ import { initialState } from 'src/app/root-store/mediaStatus/state';
 export class ControlComponent implements OnInit {
     public camStatus: boolean = initialState.cam;
     public micStatus: boolean = initialState.mic;
+    public volume: number = 100;
 
     constructor(private readonly store: Store) {}
 

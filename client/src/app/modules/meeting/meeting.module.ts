@@ -9,11 +9,13 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [MeetingComponent, VideoComponent, ControlComponent],
     imports: [
         BrowserModule,
+        FormsModule,
         MeetingRoutingModule,
         MatIconModule,
         MatSliderModule,
