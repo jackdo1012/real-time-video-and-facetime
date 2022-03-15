@@ -1,29 +1,49 @@
-<ul class="control-list">
-    <li class="control-item volume">
-        <button mat-stroked-button disabled>
+<mat-list cols="5" class="control-list">
+    <mat-list-item class="control-item volume">
+        <button class="control-button" matLine mat-stroked-button disabled>
             <mat-icon>volume_up</mat-icon>
             <mat-slider min="0" max="100" step="1" value="100"></mat-slider>
         </button>
-        Volume
-    </li>
-    <li class="control-item mic">
-        <button mat-stroked-button>
-            <mat-icon>mic</mat-icon>
-        </button>Mic
-    </li>
-    <li class="control-item cam" (click)="toggleCam()">
-        <button mat-stroked-button>
-            <mat-icon>camera_alt</mat-icon>
-        </button>Cam
-    </li>
-    <li class="control-item screen">
-        <button mat-stroked-button>
-            <mat-icon> screen_share</mat-icon>
-        </button>Screen
-    </li>
-    <li class="control-item leave">
-        <button mat-stroked-button>
+        <div matLine class="control-title">Volume</div>
+    </mat-list-item>
+    <mat-divider [vertical]="true"></mat-divider>
+    <mat-list-item class="control-item mic">
+        <button
+            class="control-button"
+            [ngClass]="{ micOff: !micStatus }"
+            matLine
+            mat-stroked-button
+            (click)="toggleMic()"
+        >
+            <mat-icon>{{ micStatus ? "mic" : "mic_off" }}</mat-icon>
+        </button>
+        <div matLine class="control-title">Mic</div>
+    </mat-list-item>
+    <mat-divider [vertical]="true"></mat-divider>
+    <mat-list-item class="control-item cam">
+        <button
+            class="control-button"
+            [ngClass]="{ camOff: !camStatus }"
+            matLine
+            mat-stroked-button
+            (click)="toggleCam()"
+        >
+            <mat-icon>{{ camStatus ? "videocam" : "videocam_off" }}</mat-icon>
+        </button>
+        <div matLine class="control-title">Cam</div>
+    </mat-list-item>
+    <mat-divider [vertical]="true"></mat-divider>
+    <mat-list-item class="control-item screen">
+        <button class="control-button" matLine mat-stroked-button>
+            <mat-icon>screen_share</mat-icon>
+        </button>
+        <div matLine class="control-title">Screen</div>
+    </mat-list-item>
+    <mat-divider [vertical]="true"></mat-divider>
+    <mat-list-item class="control-item leave">
+        <button class="control-button" matLine mat-stroked-button>
             <mat-icon>exit_to_app</mat-icon>
-        </button>Leave
-    </li>
-</ul>
+        </button>
+        <div matLine class="control-title">Leave</div>
+    </mat-list-item>
+</mat-list>

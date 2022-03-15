@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { initialState } from 'src/app/root-store/mediaStatus/state';
 import { selectCamStatus } from '../../../root-store/mediaStatus/selectors';
 
 @Component({
@@ -29,14 +30,15 @@ export class VideoComponent implements OnInit {
             this.navigator.msGetUserMedia;
 
         this.localStream = await this.navigator.mediaDevices.getUserMedia({
-            video: true,
+            video: initialState.cam,
+            audio: initialState.mic,
         });
         video.srcObject = this.localStream;
-        video.play();
 
         this.store.select(selectCamStatus).subscribe((camStatus) => {
             if (camStatus) {
                 video.srcObject = this.localStream;
+                video.play();
             } else {
                 video.srcObject = null;
             }

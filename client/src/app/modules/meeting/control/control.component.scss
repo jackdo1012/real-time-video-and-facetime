@@ -1,0 +1,24 @@
+.control-list {
+    display: flex;
+    .control-item {
+        .control-button {
+            background-color: transparent;
+            transition: all 0.2s ease-in-out;
+        }
+
+        &.cam {
+            .camOff {
+                background-color: red;
+            }
+        }
+
+        &.mic {
+            .micOff {
+                background-color: red;
+            }
+        }
+        .control-title {
+            text-align: center;
+        }
+    }
+}

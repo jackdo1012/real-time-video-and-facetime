@@ -7,6 +7,8 @@ import { VideoComponent } from './video/video.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
     declarations: [MeetingComponent, VideoComponent, ControlComponent],
@@ -16,6 +18,8 @@ import { MatButtonModule } from '@angular/material/button';
         MatIconModule,
         MatSliderModule,
         MatButtonModule,
+        MatDividerModule,
+        MatListModule,
     ],
     providers: [],
     bootstrap: [MeetingComponent],

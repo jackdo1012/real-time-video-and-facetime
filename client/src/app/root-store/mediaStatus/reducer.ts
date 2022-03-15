@@ -15,7 +15,7 @@ import {
 import { Action, ActionReducer, createReducer, on } from '@ngrx/store';
 import { State, initialState } from './state';
 
-export const mediaStatus: ActionReducer<State, Action> = createReducer(
+export const mediaStatusReducer: ActionReducer<State, Action> = createReducer(
     initialState,
     on(setCam, (state, { status }) => ({
         ...state,
