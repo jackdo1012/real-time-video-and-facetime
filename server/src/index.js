@@ -2,9 +2,9 @@
 const express = require('express');
 const { auth } = require('express-openid-connect');
 const dotenv  = require('dotenv');
-const routeLogin = require("../routers/auth")
+const routeLogin = require("./routers/auth")
 const cors = require('cors')
-const routeProfileUser = require("../routers/profileUser")
+const routeProfileUser = require("./routers/profileUser")
 const mongoose = require('mongoose');
 dotenv.config()
 const app = express();

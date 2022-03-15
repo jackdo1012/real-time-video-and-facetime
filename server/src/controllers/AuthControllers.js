@@ -2,8 +2,11 @@
 class AuthControllers {
     // [POST]/login
     login = (req, res) => {
-        console.log(req.oidc.isAuthenticated())
-        res.json("test auth successfully")
+        try {
+            const accessToken = req.body.accessToken
+        } catch (error) {
+            
+        }
     }
 }
 
