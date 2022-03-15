@@ -1,0 +1,29 @@
+<ul class="control-list">
+    <li class="control-item volume">
+        <button mat-stroked-button disabled>
+            <mat-icon>volume_up</mat-icon>
+            <mat-slider min="0" max="100" step="1" value="100"></mat-slider>
+        </button>
+        Volume
+    </li>
+    <li class="control-item mic">
+        <button mat-stroked-button>
+            <mat-icon>mic</mat-icon>
+        </button>Mic
+    </li>
+    <li class="control-item cam" (click)="toggleCam()">
+        <button mat-stroked-button>
+            <mat-icon>camera_alt</mat-icon>
+        </button>Cam
+    </li>
+    <li class="control-item screen">
+        <button mat-stroked-button>
+            <mat-icon> screen_share</mat-icon>
+        </button>Screen
+    </li>
+    <li class="control-item leave">
+        <button mat-stroked-button>
+            <mat-icon>exit_to_app</mat-icon>
+        </button>Leave
+    </li>
+</ul>
