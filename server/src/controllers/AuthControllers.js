@@ -1,12 +1,14 @@
-
+const {getUserData} = require('../services/auth.service')
 class AuthControllers {
     // [POST]/login
-    login = (req, res) => {
+    login = async(req, res) => {
         try {
-            const accessToken = req.headers.authorization
-            console.log(accessToken)
-        } catch (error) {
+            const accessToken = req.headers.authorization.split(" ")[1]
+            const userData = await getUserData(accessToken)
+            res.json(userData)
             
+        } catch (error) {
+            console.log(error)
         }
     }
 }
