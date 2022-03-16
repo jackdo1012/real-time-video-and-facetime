@@ -21,11 +21,10 @@ const authorizationAccessToken = jwt({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 5,
-    jwksUri:
-      "https://real-time-video-and-facetime.us.auth0.com/.well-known/jwks.json",
+    jwksUri: `${process.env.ISSUERBASEURL}/.well-known/jwks.json`,
   }),
-  audience: "https://quickstarts/authorization",
-  issuer: "https://real-time-video-and-facetime.us.auth0.com/",
+  audience: process.env.IDENTIFIER_URL,
+  issuer: `${process.env.ISSUERBASEURL}/`,
   algorithms: ["RS256"],
 });
 // routes

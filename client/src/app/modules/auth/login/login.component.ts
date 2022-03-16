@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'auth-login-page',
@@ -9,7 +11,11 @@ import { firstValueFrom } from 'rxjs';
     styles: [],
 })
 export class LoginComponent implements OnInit {
-    constructor(public auth: AuthService, private router: Router) {}
+    constructor(
+        public auth: AuthService,
+        private router: Router,
+        private http: HttpClient,
+    ) {}
 
     ngOnInit(): void {
         this.auth.isAuthenticated$.subscribe((auth) => {
@@ -19,11 +25,10 @@ export class LoginComponent implements OnInit {
         });
     }
 
-    private async getAccessToken(): Promise<string> {
-        const accessToken = await firstValueFrom(
-            this.auth.getAccessTokenSilently(),
-        );
-        return accessToken;
+    async loginHandler(): Promise<void> {
+        this.http.post(`${environment.apiUrl}/login`, {}).subscribe((res) => {
+            console.log(res);
+        });
     }
 
     async loginWithGoogle(): Promise<void> {
@@ -32,17 +37,11 @@ export class LoginComponent implements OnInit {
                 connection: 'google-oauth2',
             }),
         );
-        const accessToken = await this.getAccessToken();
-        console.log(accessToken);
+        await this.loginHandler();
     }
 
     async loginWithPassword(): Promise<void> {
-        await firstValueFrom(
-            this.auth.loginWithPopup({
-                connection: 'Username-Password-Authentication',
-            }),
-        );
-        const accessToken = await this.getAccessToken();
-        console.log(accessToken);
+        await firstValueFrom(this.auth.loginWithPopup());
+        await this.loginHandler();
     }
 }
