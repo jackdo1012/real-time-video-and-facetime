@@ -13,7 +13,9 @@ class AuthControllers {
                 picture: userData.picture,
                 email: userData.email,
             })
-            await user.save()
+            if(!user) {
+                await user.save()
+            }
             res.json(user)
             
         } catch (error) {
