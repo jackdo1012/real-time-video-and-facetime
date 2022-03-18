@@ -2,11 +2,11 @@
     <mat-list-item class="control-item volume">
         <button class="control-button" matLine mat-stroked-button disabled>
             <mat-icon class="control-icon">{{
-                volume === 0
-                    ? "volume_off"
+                volume <= 1
+                    ? 'volume_off'
                     : volume < 50
-                    ? "volume_down"
-                    : "volume_up"
+                    ? 'volume_down'
+                    : 'volume_up'
             }}</mat-icon>
             <mat-slider
                 min="0"
@@ -22,13 +22,13 @@
     <mat-list-item class="control-item mic">
         <button
             class="control-button"
-            [ngClass]="{ micOff: !micStatus }"
             matLine
-            mat-stroked-button
+            [color]="micStatus ? 'accent' : 'warn'"
+            mat-flat-button
             (click)="toggleMic()"
         >
             <mat-icon class="control-icon">{{
-                micStatus ? "mic" : "mic_off"
+                micStatus ? 'mic' : 'mic_off'
             }}</mat-icon>
         </button>
         <div matLine class="control-title">Mic</div>
@@ -37,20 +37,25 @@
     <mat-list-item class="control-item cam">
         <button
             class="control-button"
-            [ngClass]="{ camOff: !camStatus }"
             matLine
-            mat-stroked-button
+            [color]="camStatus ? 'accent' : 'warn'"
+            mat-flat-button
             (click)="toggleCam()"
         >
             <mat-icon class="control-icon">{{
-                camStatus ? "videocam" : "videocam_off"
+                camStatus ? 'videocam' : 'videocam_off'
             }}</mat-icon>
         </button>
         <div matLine class="control-title">Cam</div>
     </mat-list-item>
     <mat-divider [vertical]="true"></mat-divider>
     <mat-list-item class="control-item screen">
-        <button class="control-button" matLine mat-stroked-button>
+        <button
+            class="control-button"
+            [color]="screenStatus ? 'warn' : 'accent'"
+            matLine
+            mat-flat-button
+        >
             <mat-icon class="control-icon">screen_share</mat-icon>
         </button>
         <div matLine class="control-title">Screen</div>
@@ -58,7 +63,7 @@
     <mat-divider [vertical]="true"></mat-divider>
     <mat-list-item class="control-item leave">
         <button class="control-button" matLine mat-stroked-button>
-            <mat-icon class="control-icon">exit_to_app</mat-icon>
+            <mat-icon class="control-icon">logout</mat-icon>
         </button>
         <div matLine class="control-title">Leave</div>
     </mat-list-item>

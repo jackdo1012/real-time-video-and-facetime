@@ -1,4 +1,4 @@
-<div class="navbar">
+<div *ngIf="auth.isAuthenticated$ | async" class="navbar">
     <div class="logo-area"></div>
     <div class="nav-area">
         <div></div>

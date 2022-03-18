@@ -1,3 +1,4 @@
+import { MatIconModule } from '@angular/material/icon';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { AuthModule as Auth0Module } from '@auth0/auth0-angular';
     imports: [
         BrowserModule,
         RootReducerModule,
+        MatIconModule,
         BrowserAnimationsModule,
         MeetingModule,
         AuthModule,

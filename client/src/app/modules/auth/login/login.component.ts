@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 @Component({
     selector: 'auth-login-page',
     templateUrl: './login.component.html',
-    styles: [],
+    styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
     constructor(
@@ -25,23 +25,19 @@ export class LoginComponent implements OnInit {
         });
     }
 
-    async loginHandler(): Promise<void> {
+    async loginHandler(
+        connection: 'google' | 'username-password',
+    ): Promise<void> {
+        await firstValueFrom(
+            this.auth.loginWithPopup({
+                connection:
+                    connection === 'google'
+                        ? 'google-oauth2'
+                        : 'Username-Password-Authentication',
+            }),
+        );
         this.http.post(`${environment.apiUrl}/login`, {}).subscribe((res) => {
             console.log(res);
         });
-    }
-
-    async loginWithGoogle(): Promise<void> {
-        await firstValueFrom(
-            this.auth.loginWithPopup({
-                connection: 'google-oauth2',
-            }),
-        );
-        await this.loginHandler();
-    }
-
-    async loginWithPassword(): Promise<void> {
-        await firstValueFrom(this.auth.loginWithPopup());
-        await this.loginHandler();
     }
 }

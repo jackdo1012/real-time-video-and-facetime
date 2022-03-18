@@ -1,2 +1,29 @@
-<button (click)="this.loginWithPassword">Login with username and password</button>
-<button (click)="this.loginWithGoogle()">Log in with Google</button>
+<div class="page">
+    <div class="main-box">
+        <div class="picture-area"></div>
+        <div class="login-area">
+            <p class="title">Hello Again!</p>
+            <p class="small-title">Welcome back you've been missed!</p>
+            <div class="login-btns">
+                <button
+                    mat-raised-button
+                    color="accent"
+                    (click)="this.loginHandler('username-password')"
+                    class="email-password"
+                >
+                    <mat-icon>login</mat-icon>
+                    Login with username and password
+                </button>
+                <button
+                    mat-raised-button
+                    color="accent"
+                    (click)="this.loginHandler('google')"
+                    class="google"
+                >
+                    <mat-icon>login</mat-icon>
+                    Log in with Google
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
