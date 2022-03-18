@@ -6,7 +6,7 @@ class AuthControllers {
     try {
       const accessToken = req.headers.authorization.split(" ")[1];
       const userData = await getUserData(accessToken);
-      const oldUser = await authUser.find({ email: userData.email });
+      const oldUser = await authUser.findOne({ email: userData.email });
       if (!oldUser) {
         const user = new authUser({
           given_name: userData.given_name,
@@ -17,10 +17,12 @@ class AuthControllers {
         });
         await user.save();
 
-        res.json(user);
+        return res.json(user);
+      } else {
+        return res.json(oldUser);
       }
     } catch (error) {
-      console.log(error);
+        return error
     }
   };
 }
