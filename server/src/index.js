@@ -4,7 +4,6 @@ const routeLogin = require("./routers/auth");
 const cors = require("cors");
 const jwt = require("express-jwt");
 const jwks = require("jwks-rsa");
-const routeProfileUser = require("./routers/profileUser");
 const mongoose = require("mongoose");
 dotenv.config();
 const app = express();
@@ -29,7 +28,6 @@ const authorizationAccessToken = jwt({
 });
 // routes
 app.use("/api", authorizationAccessToken, routeLogin);
-app.use("/api", routeProfileUser);
 app.listen(port, () => {
   console.log("server is running on port " + port);
 });
