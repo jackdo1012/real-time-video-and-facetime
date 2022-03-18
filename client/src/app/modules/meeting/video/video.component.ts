@@ -1,7 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
 import { Store } from '@ngrx/store';
 import { initialState } from 'src/app/root-store/mediaStatus/state';
-import { selectCamStatus } from '../../../root-store/mediaStatus/selectors';
+import {
+    selectCamStatus,
+    selectMicStatus,
+} from '../../../root-store/mediaStatus/selectors';
 
 @Component({
     selector: 'meeting-video',
@@ -9,7 +13,7 @@ import { selectCamStatus } from '../../../root-store/mediaStatus/selectors';
     styleUrls: ['./video.component.scss'],
 })
 export class VideoComponent implements OnInit {
-    constructor(private store: Store) {}
+    constructor(private store: Store, public auth: AuthService) {}
 
     @ViewChild('webcam')
     private webcam!: ElementRef;
@@ -31,7 +35,7 @@ export class VideoComponent implements OnInit {
 
         this.localStream = await this.navigator.mediaDevices.getUserMedia({
             video: initialState.cam,
-            audio: initialState.mic,
+            // audio: initialState.mic,
         });
         video.srcObject = this.localStream;
 
@@ -42,6 +46,10 @@ export class VideoComponent implements OnInit {
             } else {
                 video.srcObject = null;
             }
+        });
+
+        this.store.select(selectMicStatus).subscribe((micStatus) => {
+            console.log(micStatus);
         });
     }
 }

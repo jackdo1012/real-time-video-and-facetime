@@ -2,23 +2,10 @@
     display: flex;
     .control-item {
         .control-button {
-            background-color: transparent;
             transition: all 0.2s ease-in-out;
             height: 3rem;
             .control-icon {
                 color: black;
-            }
-        }
-
-        &.cam {
-            .camOff {
-                background-color: red;
-            }
-        }
-
-        &.mic {
-            .micOff {
-                background-color: red;
             }
         }
         .control-title {

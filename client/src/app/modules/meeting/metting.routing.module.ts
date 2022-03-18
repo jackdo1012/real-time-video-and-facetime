@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from '../auth/auth.guard';
 import { MeetingComponent } from './meeting.controller';
-import { AuthGuard } from '@auth0/auth0-angular';
 
 const routes: Routes = [
     { path: 'home', component: MeetingComponent, canActivate: [AuthGuard] },

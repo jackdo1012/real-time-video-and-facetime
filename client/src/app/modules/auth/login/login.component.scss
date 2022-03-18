@@ -1,0 +1,63 @@
+$screen-bg: #e4e8f0;
+$main-bg: #f3f6fa;
+
+.page {
+    background-color: $screen-bg;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+
+    .main-box {
+        width: 90vw;
+        height: 90vh;
+        display: flex;
+        flex-direction: row;
+        padding: 1rem;
+        border-radius: 1rem;
+        background-color: $main-bg;
+
+        .picture-area {
+            border-radius: 1rem;
+            width: 50%;
+            height: 100%;
+            background-color: #d999fe;
+        }
+        .login-area {
+            background-color: transparent;
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+
+            .title {
+                font-size: 2rem;
+                font-weight: bold;
+                padding-bottom: 1rem;
+            }
+            .small-title {
+                font-size: 1.1rem;
+            }
+            .login-btns {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                padding-top: 3rem;
+
+                .email-password {
+                    font-size: 1.3rem;
+                }
+                .google {
+                    font-size: 1.3rem;
+                }
+            }
+        }
+    }
+}

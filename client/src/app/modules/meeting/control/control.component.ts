@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import {
     selectCamStatus,
     selectMicStatus,
+    selectScreenStatus,
 } from 'src/app/root-store/mediaStatus/selectors';
 import { toggleCam, toggleMic } from 'src/app/root-store/mediaStatus/actions';
 import { initialState } from 'src/app/root-store/mediaStatus/state';
@@ -15,6 +16,7 @@ import { initialState } from 'src/app/root-store/mediaStatus/state';
 export class ControlComponent implements OnInit {
     public camStatus: boolean = initialState.cam;
     public micStatus: boolean = initialState.mic;
+    public screenStatus: boolean = initialState.screen;
     public volume: number = 100;
 
     constructor(private readonly store: Store) {}
@@ -25,6 +27,9 @@ export class ControlComponent implements OnInit {
         });
         this.store.select(selectMicStatus).subscribe((status) => {
             this.micStatus = status;
+        });
+        this.store.select(selectScreenStatus).subscribe((status) => {
+            this.screenStatus = status;
         });
     }
 

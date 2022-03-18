@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { FormsModule } from '@angular/forms';
+import { AuthGuard } from '../auth/auth.guard';
 
 @NgModule({
     declarations: [MeetingComponent, VideoComponent, ControlComponent],
@@ -23,7 +24,7 @@ import { FormsModule } from '@angular/forms';
         MatDividerModule,
         MatListModule,
     ],
-    providers: [],
+    providers: [AuthGuard],
     bootstrap: [MeetingComponent],
 })
 export class MeetingModule {}

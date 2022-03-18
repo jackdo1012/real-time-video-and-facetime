@@ -1,6 +1,13 @@
 <div>
     <div class="cam-container">
         <video class="cam" #webcam autoplay></video>
-        <div class="overlay"></div>
+        <div class="overlay">
+            <img
+                *ngIf="this.auth.user$ | async as user"
+                [src]="user.picture"
+                alt="user profile"
+                class="overlay-profile-picture"
+            />
+        </div>
     </div>
 </div>

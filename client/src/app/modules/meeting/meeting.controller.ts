@@ -6,5 +6,5 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./meeting.controller.scss'],
 })
 export class MeetingComponent implements OnInit {
-    public ngOnInit() {}
+    public ngOnInit(): void {}
 }
