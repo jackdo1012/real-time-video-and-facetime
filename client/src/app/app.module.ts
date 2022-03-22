@@ -11,6 +11,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthHttpInterceptor } from '@auth0/auth0-angular';
 import { environment } from 'src/environments/environment';
 import { AuthModule as Auth0Module } from '@auth0/auth0-angular';
+import { HomeModule } from './modules/home/home.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { AuthModule as Auth0Module } from '@auth0/auth0-angular';
         RootReducerModule,
         MatIconModule,
         BrowserAnimationsModule,
+        HomeModule,
         MeetingModule,
         AuthModule,
         Auth0Module.forRoot({

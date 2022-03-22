@@ -14,7 +14,7 @@ describe('AppComponent', () => {
         expect(app).toBeTruthy();
     });
 
-    it(`should have as title 'Real-Time Video and Facetime'`, () => {
+    it('should have as title "Real-Time Video and Facetime"', () => {
         const fixture = TestBed.createComponent(AppComponent);
         const app = fixture.componentInstance;
         expect(app.title).toEqual('Real-Time Video and Facetime');

@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
@@ -7,13 +7,11 @@ import { AuthService } from '@auth0/auth0-angular';
     templateUrl: './logout.component.html',
     styleUrls: [],
 })
-export class LogoutComponent implements OnInit {
+export class LogoutComponent {
     constructor(
         public auth: AuthService,
         @Inject(DOCUMENT) private doc: Document,
     ) {}
-
-    public ngOnInit(): void {}
 
     public logout(): void {
         this.auth.logout({ returnTo: this.doc.location.origin });

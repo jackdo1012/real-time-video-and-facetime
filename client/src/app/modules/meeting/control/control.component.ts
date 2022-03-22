@@ -17,7 +17,7 @@ export class ControlComponent implements OnInit {
     public camStatus: boolean = initialState.cam;
     public micStatus: boolean = initialState.mic;
     public screenStatus: boolean = initialState.screen;
-    public volume: number = 100;
+    public volume = 100;
 
     constructor(private readonly store: Store) {}
 
